@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ura_efris *.css
+recursive-include ura_efris *.csv
+recursive-include ura_efris *.html
+recursive-include ura_efris *.ico
+recursive-include ura_efris *.js
+recursive-include ura_efris *.json
+recursive-include ura_efris *.md
+recursive-include ura_efris *.png
+recursive-include ura_efris *.py
+recursive-include ura_efris *.svg
+recursive-include ura_efris *.txt
+recursive-exclude ura_efris *.pyc

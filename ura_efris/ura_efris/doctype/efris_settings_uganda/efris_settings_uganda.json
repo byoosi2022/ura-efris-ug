@@ -1,0 +1,66 @@
+{
+ "autoname": "ESU-.#####",
+ "creation": "2023-01-29 17:44:14.460426",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "data_3",
+  "tin",
+  "deviceno",
+  "url"
+ ],
+ "fields": [
+  {
+   "fieldname": "deviceno",
+   "fieldtype": "Data",
+   "label": "Device No"
+  },
+  {
+   "fieldname": "tin",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company TIN No"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "data_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  }
+ ],
+ "modified": "2023-02-08 11:55:52.653797",
+ "modified_by": "Administrator",
+ "module": "Ura Efris",
+ "name": "Efris Settings Uganda",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,253 @@
+{
+ "creation": "2023-02-28 13:54:22.679589",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sectiona",
+  "brn",
+  "tin",
+  "legal_name",
+  "trade_name",
+  "column_break_6",
+  "address",
+  "sellers_reference_number",
+  "served_by",
+  "sectionb",
+  "document_type",
+  "issued_date",
+  "time",
+  "column_break_15",
+  "device_number",
+  "fiscal_document_number",
+  "verification_code",
+  "sectionc",
+  "buts_tin",
+  "name1",
+  "sectiond",
+  "goods_and_services_details",
+  "sectione",
+  "tax_details",
+  "sectionf",
+  "net_amount",
+  "tax_amount",
+  "gross_amount",
+  "credit",
+  "amount_to_be_paid",
+  "column_break_30",
+  "number_of_items",
+  "mode",
+  "remarks",
+  "qrcode",
+  "section_break_36",
+  "html_33"
+ ],
+ "fields": [
+  {
+   "fieldname": "sectiona",
+   "fieldtype": "Section Break",
+   "label": "Section A: Seller's Details"
+  },
+  {
+   "fieldname": "brn",
+   "fieldtype": "Data",
+   "label": "BRN"
+  },
+  {
+   "fieldname": "tin",
+   "fieldtype": "Data",
+   "label": "TIN"
+  },
+  {
+   "fieldname": "legal_name",
+   "fieldtype": "Data",
+   "label": "Legal Name"
+  },
+  {
+   "fieldname": "trade_name",
+   "fieldtype": "Data",
+   "label": "Trade Name"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "sellers_reference_number",
+   "fieldtype": "Data",
+   "label": "Sellers Reference Number"
+  },
+  {
+   "fieldname": "served_by",
+   "fieldtype": "Data",
+   "label": "Served by"
+  },
+  {
+   "fieldname": "sectionb",
+   "fieldtype": "Section Break",
+   "label": "Section B: URA Information"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Data",
+   "label": "Document Type"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Data",
+   "label": "Issued Date"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Data",
+   "label": "Time"
+  },
+  {
+   "fieldname": "device_number",
+   "fieldtype": "Data",
+   "label": "Device Number"
+  },
+  {
+   "fieldname": "fiscal_document_number",
+   "fieldtype": "Data",
+   "label": "Fiscal Document Number"
+  },
+  {
+   "fieldname": "verification_code",
+   "fieldtype": "Data",
+   "label": "Verification Code"
+  },
+  {
+   "fieldname": "sectionc",
+   "fieldtype": "Section Break",
+   "label": "Section C: Buyer's Details"
+  },
+  {
+   "fieldname": "buts_tin",
+   "fieldtype": "Data",
+   "label": "TIN"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "sectiond",
+   "fieldtype": "Data",
+   "label": "Section D: Goods & Services Details"
+  },
+  {
+   "fieldname": "goods_and_services_details",
+   "fieldtype": "Table",
+   "label": "Goods and Services Details",
+   "options": "Goods and Services Details"
+  },
+  {
+   "fieldname": "sectione",
+   "fieldtype": "Section Break",
+   "label": "Section E: Tax Details"
+  },
+  {
+   "fieldname": "tax_details",
+   "fieldtype": "Table",
+   "label": "Tax Details",
+   "options": "Efris Tax Details"
+  },
+  {
+   "fieldname": "sectionf",
+   "fieldtype": "Section Break",
+   "label": "Section F: Summary"
+  },
+  {
+   "fieldname": "net_amount",
+   "fieldtype": "Data",
+   "label": "Net Amount"
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Data",
+   "label": "Tax Amount"
+  },
+  {
+   "fieldname": "gross_amount",
+   "fieldtype": "Data",
+   "label": "Gross Amount"
+  },
+  {
+   "fieldname": "number_of_items",
+   "fieldtype": "Data",
+   "label": "Number of Items"
+  },
+  {
+   "fieldname": "mode",
+   "fieldtype": "Data",
+   "label": "Mode"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "qrcode",
+   "fieldtype": "Small Text",
+   "label": "QrCode"
+  },
+  {
+   "fieldname": "html_33",
+   "fieldtype": "HTML",
+   "options": "<center>*** END OF e-INVOICE/TAX INVOICE ***<center></center></center>"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_36",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "credit",
+   "fieldtype": "Data",
+   "label": "Credit"
+  },
+  {
+   "fieldname": "amount_to_be_paid",
+   "fieldtype": "Data",
+   "label": "Total Amount to be Paid "
+  }
+ ],
+ "modified": "2023-02-28 16:03:11.265519",
+ "modified_by": "Administrator",
+ "module": "Ura Efris",
+ "name": "Ura Print Format sales invoice",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

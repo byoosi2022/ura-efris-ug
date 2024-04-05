@@ -1,0 +1,48 @@
+{
+ "autoname": "field:efris_payment_mode",
+ "creation": "2023-02-20 00:25:59.375728",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "efris_payment_mode",
+  "efris_pd_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "efris_payment_mode",
+   "fieldtype": "Data",
+   "label": "Efris Payment Mode",
+   "unique": 1
+  },
+  {
+   "fieldname": "efris_pd_code",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Efris PD Code"
+  }
+ ],
+ "modified": "2023-02-20 00:29:58.339597",
+ "modified_by": "Administrator",
+ "module": "Ura Efris",
+ "name": "Efris paymentModes",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

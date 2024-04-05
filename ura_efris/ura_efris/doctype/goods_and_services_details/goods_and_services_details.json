@@ -1,0 +1,67 @@
+{
+    "creation": "2023-02-28 13:46:25.249986",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+        "item",
+        "quantity",
+        "unit_measure",
+        "unit_price",
+        "total",
+        "tax_category"
+    ],
+    "fields": [
+        {
+            "allow_on_submit": 1,
+            "fieldname": "item",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Item"
+        },
+        {
+            "allow_on_submit": 1,
+            "fieldname": "quantity",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Quantity"
+        },
+        {
+            "allow_on_submit": 1,
+            "fieldname": "unit_measure",
+            "fieldtype": "Data",
+            "label": "Unit Measure "
+        },
+        {
+            "allow_on_submit": 1,
+            "fieldname": "unit_price",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Unit Price "
+        },
+        {
+            "allow_on_submit": 1,
+            "fieldname": "total",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Total"
+        },
+        {
+            "allow_on_submit": 1,
+            "fieldname": "tax_category",
+            "fieldtype": "Data",
+            "label": "Tax Category"
+        }
+    ],
+    "istable": 1,
+    "modified": "2023-03-23 23:46:23.469715",
+    "modified_by": "Administrator",
+    "module": "Ura Efris",
+    "name": "Goods and Services Details",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

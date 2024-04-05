@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "autoname": "SRERS-.#####",
+ "creation": "2023-02-20 01:16:24.062827",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "status_code",
+  "sales_invoice",
+  "efris_referenceno",
+  "custom",
+  "qr_code",
+  "column_break_n8sj1",
+  "orriginal_invoice_id",
+  "verification_code",
+  "antifake_code",
+  "original_invoice_no",
+  "sales_invoice_content"
+ ],
+ "fields": [
+  {
+   "fieldname": "efris_referenceno",
+   "fieldtype": "Data",
+   "label": "Efris referenceNo",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice Id",
+   "options": "Sales Invoice",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "custom",
+   "fieldtype": "Data",
+   "label": "Custom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "orriginal_invoice_id",
+   "fieldtype": "Data",
+   "label": "Original Invoice Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_code",
+   "fieldtype": "Data",
+   "label": "Status Code"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Text",
+   "label": "QR CODE"
+  },
+  {
+   "fieldname": "column_break_n8sj1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verification_code",
+   "fieldtype": "Data",
+   "label": "Verification Code"
+  },
+  {
+   "fieldname": "antifake_code",
+   "fieldtype": "Data",
+   "label": "antifake_code"
+  },
+  {
+   "fieldname": "original_invoice_no",
+   "fieldtype": "Data",
+   "label": "Original Invoice No"
+  },
+  {
+   "fieldname": "sales_invoice_content",
+   "fieldtype": "Small Text",
+   "label": "Sales Invoice Content"
+  }
+ ],
+ "in_create": 1,
+ "links": [],
+ "modified": "2023-06-14 08:17:58.135281",
+ "modified_by": "Administrator",
+ "module": "Ura Efris",
+ "name": "Sales Return Efris Responses",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
