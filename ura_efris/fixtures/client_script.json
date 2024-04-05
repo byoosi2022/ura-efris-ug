@@ -3,22 +3,22 @@
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Customer",
+  "enabled": 0,
   "modified": "2023-02-17 18:11:08.925467",
+  "module": null,
   "name": "Customer-Client",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
-  "script": "frappe.ui.form.on('Customer', {\r\n    refresh: function(frm) {\r\n        // Define a handler function for the button click event\r\n        frm.fields_dict.process.$input.on('click', function() {\r\n            // Handle the button click event\r\n            console.log('Button clicked!');\r\n              var tax_id = cur_frm.doc.tax_id;\r\n                frappe.call({\r\n                method: 'ura_efris.api.ura_verification_custom.ura_verification_custom',\r\n               args: { \r\n                   doc: cur_frm.doc,\r\n                   tax_id: cur_frm.doc.tax_id\r\n                   \r\n               },\r\n               callback: function(response) {\r\n                    cur_frm.refresh();\r\n                }\r\n            });\r\n        });\r\n    }\r\n});\r\n"
+  "script": "frappe.ui.form.on('Customer', {\r\n    refresh: function(frm) {\r\n        // Define a handler function for the button click event\r\n        frm.fields_dict.process.$input.on('click', function() {\r\n            // Handle the button click event\r\n            console.log('Button clicked!');\r\n              var tax_id = cur_frm.doc.tax_id;\r\n                frappe.call({\r\n                method: 'ura_efris.api.ura_verification_custom.ura_verification_custom',\r\n               args: { \r\n                   doc: cur_frm.doc,\r\n                   tax_id: cur_frm.doc.tax_id\r\n                   \r\n               },\r\n               callback: function(response) {\r\n                    cur_frm.refresh();\r\n                }\r\n            });\r\n        });\r\n    }\r\n});\r\n",
+  "view": null
  },
  {
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Sales Invoice",
-  "modified": "2023-02-20 08:39:13.641701",
+  "enabled": 0,
+  "modified": "2024-02-10 13:22:10.253915",
+  "module": null,
   "name": "Sales Invoice-Client",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
-  "script": "cur_frm.cscript.is_efris = function(doc, cdt, cdn) {\r\n    if (doc.is_efris) {\r\n        // uncheck the second checkbox\r\n        cur_frm.set_value('is_return', 0);\r\n    }\r\n}\r\n\r\ncur_frm.cscript.is_return = function(doc, cdt, cdn) {\r\n    if (doc.is_return) {\r\n        // uncheck the first checkbox\r\n        cur_frm.set_value('is_efris', 0);\r\n    }\r\n}\r\n"
+  "script": "cur_frm.cscript.is_efris = function(doc, cdt, cdn) {\r\n    if (doc.is_efris) {\r\n        // uncheck the second checkbox\r\n        cur_frm.set_value('is_return', 0);\r\n    }\r\n}\r\n\r\ncur_frm.cscript.is_return = function(doc, cdt, cdn) {\r\n    if (doc.is_return) {\r\n        // uncheck the first checkbox\r\n        cur_frm.set_value('is_efris', 0);\r\n    }\r\n}\r\n\r\nfrappe.ui.form.on('Sales Invoice', {\r\n    onload: function(frm) {\r\n        // Bind event to the Save button\r\n        frm.page.set_primary_action(__('Save'), function() {\r\n            // Your custom logic here\r\n            frappe.msgprint('Save button clicked!');\r\n            console.log(\"am around\")\r\n            // To save the form after showing the message\r\n            frm.save();\r\n        });\r\n    }\r\n});\r\n\r\n\r\n",
+  "view": null
  }
 ]
