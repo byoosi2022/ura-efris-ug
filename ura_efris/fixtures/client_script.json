@@ -1,24 +1,24 @@
 [
- {
-  "docstatus": 0,
-  "doctype": "Client Script",
-  "dt": "Customer",
-  "enabled": 0,
-  "modified": "2023-02-17 18:11:08.925467",
-  "module": null,
-  "name": "Customer-Client",
-  "script": "frappe.ui.form.on('Customer', {\r\n    refresh: function(frm) {\r\n        // Define a handler function for the button click event\r\n        frm.fields_dict.process.$input.on('click', function() {\r\n            // Handle the button click event\r\n            console.log('Button clicked!');\r\n              var tax_id = cur_frm.doc.tax_id;\r\n                frappe.call({\r\n                method: 'ura_efris.api.ura_verification_custom.ura_verification_custom',\r\n               args: { \r\n                   doc: cur_frm.doc,\r\n                   tax_id: cur_frm.doc.tax_id\r\n                   \r\n               },\r\n               callback: function(response) {\r\n                    cur_frm.refresh();\r\n                }\r\n            });\r\n        });\r\n    }\r\n});\r\n",
-  "view": null
- },
- {
-  "docstatus": 0,
-  "doctype": "Client Script",
-  "dt": "Sales Invoice",
-  "enabled": 0,
-  "modified": "2024-02-10 13:22:10.253915",
-  "module": null,
-  "name": "Sales Invoice-Client",
-  "script": "cur_frm.cscript.is_efris = function(doc, cdt, cdn) {\r\n    if (doc.is_efris) {\r\n        // uncheck the second checkbox\r\n        cur_frm.set_value('is_return', 0);\r\n    }\r\n}\r\n\r\ncur_frm.cscript.is_return = function(doc, cdt, cdn) {\r\n    if (doc.is_return) {\r\n        // uncheck the first checkbox\r\n        cur_frm.set_value('is_efris', 0);\r\n    }\r\n}\r\n\r\nfrappe.ui.form.on('Sales Invoice', {\r\n    onload: function(frm) {\r\n        // Bind event to the Save button\r\n        frm.page.set_primary_action(__('Save'), function() {\r\n            // Your custom logic here\r\n            frappe.msgprint('Save button clicked!');\r\n            console.log(\"am around\")\r\n            // To save the form after showing the message\r\n            frm.save();\r\n        });\r\n    }\r\n});\r\n\r\n\r\n",
-  "view": null
- }
+    {
+        "docstatus": 0,
+        "doctype": "Client Script",
+        "dt": "Purchase Invoice",
+        "enabled": 1,
+        "modified": "2023-02-17 18:11:08.925467",
+        "module": "Ura Efris",
+        "name": "Purchase Invoice-Client",
+        "script": "frappe.ui.form.on('Purchase Invoice', {\r\n    refresh: function(frm) {\r\n        frm.add_custom_button(\r\n            __('Send To EFRIS'),\r\n            function() {\r\n                if (frm.doc.efris_return_code === '00') {\r\n                    frappe.msgprint(__('This Document has already been sent to EFRIS'), 'Info');\r\n                } else {\r\n                    frappe.call({\r\n                        method: 'ura_efris.api.items_stock.send_request_to_api_pv',\r\n                        args: {\r\n                            docname: frm.doc.name,\r\n                            modified: frm.doc.modified,\r\n                        },\r\n                        callback: function(response) {\r\n                            console.log(response);\r\n                        },\r\n                    });\r\n                }\r\n            },\r\n            __('EFRIS')\r\n        );\r\n\r\n        frm.add_custom_button(\r\n            __('Create Stock Entry'),\r\n            function() {\r\n                var items = [];\r\n                frm.doc.items.forEach(function(item) {\r\n                    if (item.item_code && item.qty && item.rate) {\r\n                        items.push({\r\n                            item_code: item.item_code,\r\n                            qty: item.qty,\r\n                            rate: item.rate,\r\n                        });\r\n                    }\r\n                });\r\n\r\n                frappe.call({\r\n                    method: 'create_stock_entry',\r\n                    args: {\r\n                        items: items,\r\n                        warehouse: frm.doc.default_warehouse,\r\n                        posting_date: frappe.datetime.get_today(),\r\n                    },\r\n                    callback: function(response) {\r\n                        if (response.message) {\r\n                            frappe.msgprint(__('Stock Entry created successfully.'), 'Success');\r\n                        } else {\r\n                            frappe.msgprint(__('Failed to create Stock Entry.'), 'Error');\r\n                        }\r\n                    },\r\n                });\r\n            },\r\n            __('Create Stock Entry')\r\n        );\r\n    },\r\n});\r\n",
+        "view": "Form"
+    },
+    {
+        "docstatus": 0,
+        "doctype": "Client Script",
+        "dt": "Efris Settings Uganda",
+        "enabled": 1,
+        "modified": "2024-02-10 13:22:10.253915",
+        "module": "Ura Efris",
+        "name": "Efris Settings Uganda-Client",
+        "script": "frappe.ui.form.on('Efris Settings Uganda', {\r\n    refresh: function(frm) {\r\n        frm.add_custom_button(\r\n            __('Insert Efris Codes'),\r\n            function() {\r\n                frappe.call({\r\n                    method: 'ura_efris.efris_data.efris_code.insert_efris_data',\r\n                    callback: function(response) {\r\n                        console.log(response);\r\n                    },\r\n                });\r\n            },\r\n            __('CREATE EFRIS DOCS')\r\n        );\r\n    },\r\n});\r\n",
+        "view": "Form"
+    }
 ]
