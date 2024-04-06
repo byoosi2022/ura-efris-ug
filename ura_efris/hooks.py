@@ -155,7 +155,7 @@ scheduler_events = {
 # }
 #
 # each overriding function accepts a `data` argument;
-fixtures = ["Custom Field","Client Script"]
+fixtures = ["Client Script"]
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {

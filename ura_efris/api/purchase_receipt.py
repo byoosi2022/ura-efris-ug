@@ -83,6 +83,7 @@ def send_request_to_api(docname, modified):
             frappe.msgprint(
                 _(f"Thanks. Your {doc.doctype} has been Created in EFRIS"), alert=True
             )
+            
             doc.efris_return_code = returnCode
             doc.save()
             frappe.db.commit()
