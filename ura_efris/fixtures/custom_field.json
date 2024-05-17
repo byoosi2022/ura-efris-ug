@@ -6290,7 +6290,6 @@
     "insert_after": "taxes",
     "is_system_generated": 1,
     "label": "EFRIS Tax Category Code",
-    
     "module": "Ura Efris",
     "name": "Item Tax Template-efris_tax_category_code",
     "options": "taxCategoryCode"

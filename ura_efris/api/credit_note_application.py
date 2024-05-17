@@ -20,7 +20,7 @@ def send_request_to_api(docname, modified):
     doc = frappe.get_doc("Sales Invoice", docname)
     credit_note_application(doc, "on_submit")
 
-
+import base64
 @frappe.whitelist()
 def credit_note_application(doc, method):
     if doc.is_return and doc.update_stock and not doc.oriinvoiceid:
@@ -161,6 +161,16 @@ def credit_note_application(doc, method):
         data["data"] = create_data(base64_message)
         data["globalInfo"] = create_global_info("T110", deviceNo, tin)
         response = requests.post(url, json=data)
+        
+        response_json = response.json()
+        test1 = response_json["data"]
+        country = test1["content"]
+        py_string = country
+        byte_msg = py_string.encode("ascii")
+        base64_val = base64.b64decode(byte_msg)
+        main_content_return = base64_val.decode("ascii")
+           
+        doc.db_set("custom_return_main_content", main_content_return)
         returnCode, returnMessage = get_return_code_and_message(response)
         if returnCode == 00:
             main_content = get_main_content_from_reponse(response)
@@ -172,7 +182,7 @@ def credit_note_application(doc, method):
             device_no = basic_info["deviceNo"]
             reference_number = data["referenceNo"]
             doc.oriinvoiceid = reference_number
-            # doc.return_content_sales = main_content
+            # doc.custom_return_main_content = data
             doc.save()
             frappe.msgprint(
                 _("Thank you! A return has been requested for this invoice to EFRIS.")
